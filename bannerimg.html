@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Banner image</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            p, h3 {
+                text-align:center;
+            }
+        </style>
+        <script>
+            //Variable que define el número de imagen
+            var contador;
+            function cambia(){
+                //Modificamos el atributo src de la imagen de la página, indicando el
+                //nuevo nombre que cambiará según el valor de contador Banner1, Banner2...
+                document.getElementById("Imagen").src = "imagenes/banner"+contador+".gif";
+                //Aumentamos el valor de contador
+                contador=contador+1;
+                if (contador>10) contador=1; //Si hemos pasado la última imagen volvemos a empezar
+                //Volvemos a llamar a la función para que cambie la imagen
+                setTimeout("cambia()",1000);
+            }
+            function Comenzar()
+            {
+                //Empieza el proceso de cambio de imagenes
+                contador=1;
+                setTimeout("cambia()",300);
+            }
+        </script>
+    </head>
+    <body>
+      <p><img name="Imagen" id="Imagen" src="imagenes/banner0.gif" onClick="Comenzar()"></p>
+      <h3>Para que la imagen que aparece en esta página empiece a cambiar haz clic sobre ella.</h3>
+    </body>
+</html>

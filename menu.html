@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project three/orderMenu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="personaldata.js"></script>
+        <style type="text/css">
+            
+            h1{
+                background-color: darkslategrey;
+                color: white;
+            }
+         /*Project menu*/
+         parrafo {
+                 font-size: 16px;
+                 text-decoration: underline;
+                 border-top-style: dotted;
+                 border-right-style: dotted;
+                 border-bottom-style: dotted;
+                 border-left-style: dotted;
+                 background-color:#FF6
+         }
+         #mas1 {
+  border-color: #04AA6D;
+  color: green;
+}
+
+#mas1:hover {
+  background: #04AA6D;
+  color: white;
+}
+       #mas {
+  border-color: #f44336;
+  color: red;
+}
+
+#mas:hover {
+  background: #f44336;
+  color: white;
+}
+         
+         </style>
+    </head>
+    <body>
+      
+         <!-- At and erase order menu -->
+         <div>
+        <h1>POR FAVOR AÑADA SU PEDIDO PARA EL MENÚ</h1>
+        <input name="texto" type="text" id="texto" size="50" />
+        <input type="button" name="mas" id="mas1" value="Añadir" onclick="nuevo()" />
+        <input type="button" name="mas" id="mas" value="Borrar" onclick="borrar()" />
+         </div>
+         
+         <script>         
+     //At and erase order menu
+
+            let contador = 0;
+            function nuevo() {
+                var p = document.createElement("p");
+                var nodotexto = document.createTextNode(document.getElementById("texto").value);
+                alert(contador);
+                p.appendChild(nodotexto);
+                document.body.appendChild(p);
+                document.getElementsByTagName("p")[contador].className = "parrafo";
+                contador++; //sumamos uno para el siguiente parrafo si pulsano nuevo otra vez
+            }
+            function borrar() {
+                var p = document.getElementsByTagName("p");
+                //Obtenemos un array con todos los nodos de párrafo
+                while (p.length > 0) {
+                    //Mientras que quede algún nodo los vamos borrando
+                    document.body.removeChild(p[0]);
+                }
+                contador = 0; //Reseteamos el contador de párrafos para volver a añadir desde 0 
+                //          //y que el estilo no de error
+            }
+         </script>
+        
+    </body>
+</html>

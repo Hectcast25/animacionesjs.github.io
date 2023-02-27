@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project two/data intro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="personaldata.js"></script>
+        <style type="text/css">
+            body {
+                background-color: lightgray;
+            }
+            input {
+                border-color: #2196F3;
+                color: black;
+                border: 2px solid black;
+                padding: 12px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            input:hover {
+                background: #2196F3;
+                color: white;
+            }
+            div{
+                text-align: center;
+            }
+        </style>
+      
+    </head>
+    <body>       
+        <!-- Personal data table -->
+        <div>
+            <input type="button" onclick="alta()" value="Introducir Datos Personal">    
+            <br>
+            <table width='527' id='tabla' border='1'>
+                <tr><td width='117' align='center' bgcolor='#9966FF'><strong>Nombre</strong></td>
+                    <td width='151' align='center' bgcolor='#9966FF'><strong>Apellidos</strong></td>
+                    <td width='78' align='center' bgcolor='#9966FF'><strong>Edad</strong></td>
+                    <td width='153' align='center' bgcolor='#9966FF'><strong>Ciudad</strong></td>
+                </tr>
+            </table>   
+        </div>
+
+        <script>           
+//Intrucir datos 
+function alta(){   
+var capacambio = document.getElementById("tabla");
+NombrePersona =prompt("Introduzca el nombre:", "");
+ApellidoPersona =prompt("Introduzca los apellidos:", "");
+EdadPersona =prompt("Introduzca la edad:", "");
+CiudadPersona =prompt("Introduzca la ciudad:", "");  
+     
+var TextoT="";
+TextoT+="<tr><td align='center' bgcolor='#FFCC33'>"+NombrePersona+"</td>";
+TextoT+="<td align='center' bgcolor='#FFCC33'>"+ApellidoPersona+"</td>";
+TextoT+= "<td align='center' bgcolor='#FFCC33'>" + EdadPersona + "</td>";
+                TextoT += "<td align='center' bgcolor='#FFCC33'>" + CiudadPersona + "</td></tr>";
+
+                capacambio.innerHTML += TextoT;
+
+            }
+        </script>
+    </body>
+</html>

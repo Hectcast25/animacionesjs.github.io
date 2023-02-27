@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project One/Gallery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .centro {
+                text-align: center;
+                background-color: skyblue;
+            }
+            #imagen {
+                position:absolute;
+                width:275px;
+                height:187px;
+                z-index:1;
+                left: 35px;
+                top: 72px;
+                border-style: solid;
+                border-width: 2px;
+            }
+            #explicacion {
+                position:absolute;
+                width:275px;
+                height:95px;
+                z-index:1;
+                left: 378px;
+                top: 73px;
+                border-style: solid;
+                border-width: 2px;
+            }
+            #boton {
+                position:absolute;
+                z-index:1;
+                left: 391px;
+                top: 179px;
+            }
+        </style>
+
+        <script>
+            //Show Art Gallery     
+            var posicion = 0;
+            var imgarray = new Array("caravaggio_david_goliat.jpg", "descendimiento.jpg", "vocaciondesanmateo.jpg");
+            var exparray = new Array("Pintado hacia 1599-1600 por Caravaggio. Narra la historia de David contra Goliath. Se conserva actualmente en el Museo del Prado.", "Encargo que se le realizó a Rubens en 1611. Terminado en 1614 destaca por el uso de la luz y figuras un tanto pasadas de peso.", "Al oleo sobre lienzo, encargada en 1699 a Caravaggio para decorar la capilla Contarelli en la iglesia romana de San Luis de los Franceses donde aun se conserva.");
+
+            function cargar() {
+                var capaimagen = document.getElementById("imagen");
+                var capaexplicacion = document.getElementById("explicacion");
+                capaimagen.innerHTML = "<img src='imagenes/" + imgarray[posicion] + "'/- height='187px' width='275px'/>";
+                capaexplicacion.innerHTML = exparray[posicion];
+                var elem = document.getElementById('imagen');
+                elem.style.width = '100';
+                if (++posicion == 3)
+                    posicion = 0;
+            }
+        </script>
+
+    </head>
+    <body>
+        <!-- Show Art Gallery -->
+        <div class="centro"> 
+            <h1>GALERÍA DE CUADRO BARROCOS</h1>
+            <div id="imagen">Aquí se muestran las imágenes de los cuadros</div>
+            <div id="explicacion">Aquí se muestran las explicaciones de los cuadros</div>
+            <div id="boton">
+                <input type="button" value="Siguiente" onclick="cargar();">
+            </div>
+        </div>      
+    </body>
+</html>
