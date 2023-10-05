@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Typewriter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        button{
+            background-color: yellow;
+            border: none;
+            color: black;
+            padding: 30px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px;
+            font-size: medium;
+        }
+        div{
+            text-align: center;
+            padding-top: 100px;
+        }
+    </style>
+    </head>    
+    <body>
+        <div>       
+            <h1>Typewriter</h1>
+
+            <button onclick="typeW()">Click me</button>
+
+            <h3 id="demo"></h3>
+        </div>
+        
+        <!-- Código JavaScript para Typewriter -->
+<script>
+var i = 0;
+var txt = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n\
+Nulla eget elit nec odio congue tristique. \n\
+Phasellus eu magna sed libero dictum vulputate. \n\
+Fusce volutpat erat nec urna dictum, nec laoreet nunc lobortis. \n\
+In sit amet justo eget velit venenatis gravida sed a leo. \n\
+Ut eu elit et tortor feugiat bibendum nec in ligula. \n\
+Sed luctus, nisl quis tristique suscipit, mi elit volutpat lorem, eget feugiat quam nisl nec libero. Suspendisse potenti. \n\
+Sed at turpis at odio dictum sodales. Nulla facilisi. In in eros a ex ultricies luctus. Donec vel ex eu purus viverra varius.\n\
+Curabitur bibendum ex in lectus malesuada, at rhoncus velit malesuada. Vivamus quis magna non elit vestibulum iaculis. Proin venenatis odio vel massa scelerisque lacinia.';
+var speed = 50;
+
+function typeW() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeW, speed);
+  }
+}
+</script>
+    </body>
+</html>
