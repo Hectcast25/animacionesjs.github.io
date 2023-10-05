@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slide Gallery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Posición del contenedor de imagenes (es necesario para posicionar los botones o flechas de izquierda y drecha) */
+.container {
+  position: relative;
+}
+
+/* Ocultar las imagenes por defecto */
+.mySlides {
+  display: none;
+}
+
+/* cursor pointer para las imagenes en thumbnail */
+.cursor {
+  cursor: pointer;
+}
+
+/* Botones Next y Prev */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Posición para el "next button" del lado derecho */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, background color negro para felchas prev y next */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Texto para imagenes (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* contener para texto de imagenes*/
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* seis columnas por lado */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* efecto de transparencia para imagenes thumnbail*/
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+    </head>
+    <body>
+
+        <h2 style="text-align:center">Slideshow Gallery - Plantas para el interior del hogar</h2>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="imagenes/img_uno.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="imagenes/img_dos.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="imagenes/img_tres.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="imagenes/img_cuatro.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="imagenes/img_cinco.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="imagenes/img_seis.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="imagenes/img_uno.jpg" style="width:100%" onclick="currentSlide(1)" alt="Plantas para decorcar interior">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="imagenes/img_dos.jpg" style="width:100%" onclick="currentSlide(2)" alt="Invernadero de plantas para interior">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="imagenes/img_tres.jpg" style="width:100%" onclick="currentSlide(3)" alt="Las plantas purifican el aire">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="imagenes/img_cuatro.jpg" style="width:100%" onclick="currentSlide(4)" alt="Algo de color y elegancia en el interior de tu hogar">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="imagenes/img_cinco.jpg" style="width:100%" onclick="currentSlide(5)" alt="Plantas, sencillez y armonia">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="imagenes/img_seis.jpg" style="width:100%" onclick="currentSlide(6)" alt="Plantas, cactus y palmeras">
+    </div>
+  </div>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+    </body>
+</html>
